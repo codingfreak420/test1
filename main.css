@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css?family=Signika+Negative:300,400&display=swap');
+
+html, body, section.horizontal {
+  overflow-x: hidden;
+}
+
+body { 
+  font-family: "Signika Negative", sans-serif; 
+  font-weight: 300;
+  
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 50px 0 0 50px;
+}
+
+p {
+  margin: 0;
+  padding: 50px 0 50px 50px;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+section:nth-of-type(odd) {
+background-color: #f0f0f0;
+}
+
+section:nth-of-type(even) {
+background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+section.horizontal {
+  overflow-x: hidden;
+}
+
+section.horizontal .pin-wrap,
+section.horizontal .animation-wrap {
+    display: flex;
+    position: relative;
+    z-index: 1;  
+    height: 100vh;
+}
+
+
+section.horizontal .item {
+    position: relative;
+    padding: 150px 80px;
+    flex: 0 0 500px;
+    height: calc(100vh);
+    display: flex;
+    align-items: center;
+    line-height: 1.7;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: transparent;
+  object-fit: cover;
+}
+
+section.horizontal .item:before {
+    position: absolute;
+    font-size: 0;
+    opacity: .13;
+    font-weight: bold;    
+    z-index: -1;
+    -webkit-transform: translate(-30px, -50px);
+    transform: translate(-30px, -50px);
+    line-height: 1;
+}
+
+
+
+
+section.horizontal .animation-wrap.to-right {
+    counter-reset: item;
+    float: left;
+}
+
+section.horizontal .animation-wrap.to-left {
+    counter-reset: item 11;
+    float: right; 
+}
+
+section.horizontal .animation-wrap.to-right .item:before {
+    counter-increment: item;
+    content: counter(item);
+}
+
+section.horizontal .animation-wrap.to-left .item:before {
+    counter-increment: item -1;
+    content: counter(item);
+}
+
+
+
+section.horizontal .animation-wrap .item:nth-child(2n+2) {
+    align-items: flex-start;
+}
+
+section.horizontal .animation-wrap .item:nth-child(4n+4) {
+    align-items: flex-end;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root{
+    --green: #02b345;
+    --black: #070304;
+    --grey: #36383F;
+    --lgreen:  #e1edbd;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+/* Header */
+.header{
+    background-color: transparent;
+    box-shadow: none;
+    position: sticky ;
+    width: 100%;
+}
+
+/* headerLogo */
+#headerlogo{ height: 150px;
+    
+}
+
+/* Nav menu */
+.nav{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 20px;
+  background-color: var(--black) ;
+  backdrop-filter: blur(5px);
+    
+}
+
+.menu a,.menu p{
+    display: block;
+    padding: 30px;
+    margin-top: 25px;
+  background:linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation:alternate-reverse ease shine 3s infinite;
+
+}
+
+.menu a:hover{
+    background-color: var(--black);
+    width: 60%;
+    margin-left: 20%;
+    border-radius: 9px;
+    text-align: center;
+    color: var(--lgreen);
+}
+
+.nav{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+/* Sub nav */
+.subnav-content {
+    width: 70%;
+    z-index: 1;
+    padding: 20px 0 ;
+    display: none;
+    border-radius: 9px;
+    margin-left: 15%;
+    background: transparent)
+
+  }
+.subnav-content a {
+    color: var(--green);
+    text-decoration: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+}
+.subnav:hover .subnav-content {
+    display: block;
+}
+
+/* Menu Icon */
+
+.hamb{
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+  background: transparent;
+  
+}
+
+
+.hamb-line {
+    background-color: var(--green);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+    margin-top: 30px;
+    
+}
+
+.hamb-line::before,
+.hamb-line::after{
+    background-color: var(--green);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before{
+    top: 5px;
+}
+
+.hamb-line::after{
+    top: -5px;
+}
+
+
+.side-menu {
+    display: none; 
+}
+
+/* Toggle menu icon */
+
+.side-menu:checked ~ nav{
+    max-height: 100%; position: relative;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+
+/* Responsiveness */
+
+@media (min-width: 768px) {
+    .nav{
+        max-height: none;
+        top:0px;
+        position: relative ;
+        float: right;
+        width: fit-content;
+        background: transparent;
+
+    }
+
+    .menu li{
+        float: left;
+    }
+
+    .menu a:hover{
+        background-color: transparent;
+        color: var(--lgreen);
+       
+        
+    }
+    
+    .hamb{
+        display: none;
+    }
+
+        /* Sub nav */
+    .subnav-content {
+        padding: 20px 0 ;
+        display: none;
+        border-radius: 9px;
+      background:transparent
+ 
+        
+    }
+
+    .subnav-content a {
+         background:linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 3s ease alternate infinite;
+    }
+    .subnav-content a:hover {color: var(--black);}
+}
+/*video*/
+.intro{
+height: 100%;
+width: 100%;
+position: static;
+z-index: -1;
+margin-top: -160px ;
+left: 0;
+object-fit: cover;
+}
+
+h1{
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+}
+
+
+#homemain{
+  font-size: 40px;
+  text-align: center; margin-top: -100px; border: none;
+  position: absolute;
+  font-family: 'VT323', monospace;
+}
+
+h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 2px solid;
+  animation: typing 1.5s steps(30, end) forwards, blinking 1s infinite;
+  background-color: transparent;
+  color: var(--green);
+  text-align: center;
+}
+
+
+#goals {font-size: 28px; font-family: 'Share Tech', sans-serif; width: 70%; text-align: justify;  background:linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 3s ease alternate infinite;
+	}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 200px;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+#gradient-border {
+  --borderWidth: 6px;
+  background: var(--black);
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+#gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+}
+
+#picone img{ object-fit: cover;}
+
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }}
+
+@keyframes blinking {
+  0% {border-right-color: transparent}
+  50% {border-right-color: var(--green)}
+  100% {border-right-color: transparent}}
